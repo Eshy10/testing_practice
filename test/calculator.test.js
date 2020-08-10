@@ -25,11 +25,11 @@ test('subtract numbers correctly', () => {
   });
 
 test('subtract from positive numbers', () => {
-    expect(calculator.subtract(-2, 5)).toBe(3);
+    expect(calculator.subtract(-2, 5)).toBe(-7);
   });
 
 test('subtract two negative numbers', () => {
-    expect(calculator.subtract(-4, -4)).toBe(-8);
+    expect(calculator.subtract(-4, -4)).toBe(0);
   });
 
   test('multiply two numbers numbers', () => {

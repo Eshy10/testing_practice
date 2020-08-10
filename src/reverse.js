@@ -6,4 +6,4 @@ const reverseString = (string) => {
     return newStr
 }
 
-export default reverseString
+module.exports = reverseString

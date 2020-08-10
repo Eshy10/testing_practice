@@ -71,4 +71,4 @@ const ceaser = {
     }
 }
 
-export default ceaser
+module.exports = ceaser
