@@ -12,3 +12,5 @@ const calculator = {
         return num1 * num2
     }
 }
+
+export default calculator

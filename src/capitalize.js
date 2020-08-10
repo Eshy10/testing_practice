@@ -5,3 +5,5 @@ const capitalize = (string) => {
     }
     return newStr
 }
+
+export default capitalize
