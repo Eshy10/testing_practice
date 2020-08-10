@@ -1,0 +1,1 @@
+const array = require('../src/array_analysis');
