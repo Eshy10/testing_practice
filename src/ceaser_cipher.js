@@ -1,74 +1,70 @@
-const ceaser = {
-    encryption: {
-        a: "b",
-        b: "c",
-        c: "d",
-        d: "e",
-        e: "f",
-        f: "g",
-        g: "h",
-        h: "i",
-        i: "j",
-        j: "k",
-        k: "l",
-        l: "m",
-        m: "n",
-        n: "o",
-        o: "p",
-        p: "q",
-        q: "r",
-        r: "s",
-        s: "t",
-        t: "u",
-        u: "v",
-        v: "w",
-        w: "x",
-        x: "y",
-        y: "z",
-        z: "a"
-    },
-    decryption: {
-        b : "a",
-        c : "b",
-        d : "c",
-        e : "d",
-        f : "e",
-        g : "f",
-        h : "g",
-        i : "h",
-        j : "i",
-        k : "j",
-        l : "k",
-        m : "l",
-        n : "m",
-        o : "n",
-        p : "o",
-        q : "p",
-        r : "q",
-        s : "r",
-        t : "s",
-        u : "t",
-        v : "u",
-        w : "v",
-        x : "w",
-        y : "x",
-        z : "y",
-        a : "z"
-    },
-    cipher: (string) => {
-        let newStr = ''
-        for (let i = 0; i < string.length; i += 1){
-            newStr += ceaser.encryption[string[i]]
+const encryption = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+]
+
+const findLetter = (n) => {
+    let ended = true
+    let number = n
+    while (ended) {
+        if (number >= encryption.length) {
+            number -= encryption.length
+        }else if (number < 0) {
+            number += encryption.length
+        } else {
+            return encryption[number]
         }
-        return newStr
-    },
-    decipher: (string) => {
-        let newStr = ''
-        for (let i = 0; i < string.length; i += 1){
-            newStr += ceaser.decryption[string[i]]
-        }
-        return newStr
     }
+}
+
+const changeCase = (newStr, oldStr) => {
+    let output = newStr.split('')
+    for (let i = 0; i < newStr.length; i += 1){
+        if (oldStr[i] == oldStr[i].toUpperCase()){
+            output[i] = newStr[i].toUpperCase()
+        }
+    }
+    return output.join('')
+    
+}
+
+const ceaser = (s, n) => {
+    let lowStr = s.toLowerCase()
+    let newStr = ''
+    for (let i = 0; i < lowStr.length; i += 1) {
+        if (encryption.indexOf(lowStr[i]) != -1) {
+            let newLetter = findLetter(encryption.indexOf(lowStr[i]) + n)
+            newStr += newLetter
+        } else {
+            newStr += lowStr[i]
+        }
+    }
+    newStr = changeCase(newStr, s)
+    return newStr
 }
 
 module.exports = ceaser
